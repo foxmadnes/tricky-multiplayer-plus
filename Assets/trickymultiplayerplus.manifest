@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3064328398
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 883daa49774d29a7510179d998cc30fb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4d24bf54f46935ed9e6cf78ac481bb9d
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/difficulties/gph_difficultyHeroic.png
+- Assets/Tallest/gph_menuModeTallest.png
+- Assets/difficulties/gph_difficultyCrazy.png
+Dependencies: []
