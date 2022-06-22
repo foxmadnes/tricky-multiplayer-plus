@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C881774-2B92-4A60-B68D-895F0826EA57}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TrickyTowersMod</RootNamespace>
+    <AssemblyName>TrickyTowersMod</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>D:\SteamLibrary\steamapps\common\Tricky Towers\BepInEx\plugins\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\Libs\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\Libs\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\Libs\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>..\Libs\BepInEx.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BepInEx.Harmony">
+      <HintPath>..\Libs\BepInEx.Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween43, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\DOTween43.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween46, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\DOTween46.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>..\Libs\DOTween50.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\Libs\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Networking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\UnityEngine.Networking.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:\SteamLibrary\steamapps\common\Tricky Towers\TrickyTowers_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractMulitplayerTallestModeFactory.cs" />
+    <Compile Include="AddGameModesPatch.cs" />
+    <Compile Include="AddGameModeTitlePatch.cs" />
+    <Compile Include="AddNewSpellsPatch.cs" />
+    <Compile Include="AnimateBrickCountEffect.cs" />
+    <Compile Include="CrazyPuzzleFloorFactory.cs" />
+    <Compile Include="HeroicPuzzleFloorFactory.cs" />
+    <Compile Include="CrazyRaceFloorFactory.cs" />
+    <Compile Include="CrazyRandomPuzzleFloor.cs" />
+    <Compile Include="HeroicRandomPuzzleFloor.cs" />
+    <Compile Include="CrazyRandomRaceFloor.cs" />
+    <Compile Include="ResourceManagerSubstitutionsPatch.cs" />
+    <Compile Include="GameModeIndexPatch.cs" />
+    <Compile Include="HarmonySetup.cs" />
+    <Compile Include="MultiplayerPuzzleModeCrazyFactory.cs" />
+    <Compile Include="MultiplayerPuzzleModeHeroicFactory.cs" />
+    <Compile Include="MultiplayerRaceModeCrazyFactory.cs" />
+    <Compile Include="MultiplayerRaceModeEpicFactory.cs" />
+    <Compile Include="MultiplayerSurvivalModeCrazyFactory.cs" />
+    <Compile Include="MultiplayerSurvivalModeEpicFactory.cs" />
+    <Compile Include="MultiPlayerTallestGameModeIntroController.cs" />
+    <Compile Include="MultiPlayerTallestGameModePlayController.cs" />
+    <Compile Include="MultiplayerTallestModeCrazyFactory.cs" />
+    <Compile Include="MultiplayerTallestModeEpicFactory.cs" />
+    <Compile Include="MultiplayerTallestModeMediumFactory.cs" />
+    <Compile Include="MultiplayerTallestModeProFactory.cs" />
+    <Compile Include="PlayerStatsNewGamemodesPatch.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomBagGroupBrickNamePicker.cs" />
+    <Compile Include="RandomNamedGroupBrickPickerFactory.cs" />
+    <Compile Include="RegisterNewExplanationsPatch.cs" />
+    <Compile Include="RegisterNewResourcesPatch.cs" />
+    <Compile Include="RegisterNewSoundsPatch.cs" />
+    <Compile Include="RegisterNewStringsPatch.cs" />
+    <Compile Include="SharedRandomNamedGroupBrickPickerFactory.cs" />
+    <Compile Include="TallestGameMode.cs" />
+    <Compile Include="TallestGameModeFactory.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
