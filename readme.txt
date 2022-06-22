@@ -1,7 +1,9 @@
 TRICKY MULTIPLAYER PLUS - 1.0
-This is a BepInEx mod of Tricky Towers. To Install, unzip the mod into your tricky towers install location to the BepInEx folder is alongside the TrickyTowers.exe file.
+This is a BepInEx mod of Tricky Towers. To Install, unzip a mod release zip into your tricky towers install location to the BepInEx folder is alongside the TrickyTowers.exe file.
 
-This mod was developed on Windows and likely will only work on Windows for now.
+This mod was developed on Windows and likely will only work on Windows for now. I developed this for me and my friends, so the code could probably use cleanup.
+
+
 
 
 
@@ -34,3 +36,9 @@ In puzzle: only a few random single blocks are available as a base.
 In race: the base is two disjoint columns, and petrify and island powerups are disabled.
 In survival: single life with tricky negative spells give tough choices for spells at each point.
 In tallest: blocks come in sets of 4 of the same block, how will your tower shape up?
+
+
+
+To compile the mod yourself, use Visual Studio and link the game dll files as well as the dlls in BepInEx_x86_5.4.15.0.
+Assets are compiled from the pngs in the assets folder in an empty unity project with an AssetBundle named trickymultiplayerplus.
+
