@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace TrickyMultiplayerPlus
 {
@@ -59,27 +61,24 @@ namespace TrickyMultiplayerPlus
 			gameObject.name = "Collider";
 			gameObject.transform.parent = this._gameObject.transform;
 			gameObject.transform.localPosition = Vector3.zero;
-			for (int i = 0; i < random.Next(3) + 2; i++)
+
+			ArrayList alreadySeenX = new ArrayList();
+			for (int i = 0; i < random.Next(3) + 3; i++)
             {
-				this._CreateBlock(gameObject, random, random.Next(10) - 5);
+				int x = random.Next(10) - 5;
+				int y = random.Next(this.puzzleHeight - _TOP_MARGIN);
+				this._CreateBlock(gameObject, random, x, y);
 			}
 
 			WBTools.SetLayerRecursively(gameObject, this._gameObject.layer, WBTools.LayerType.ANY);
 		}
 
-		private void _CreateBlock(GameObject colliderObject, System.Random random, int x)
+		private void _CreateBlock(GameObject colliderObject, System.Random random, int x, int y)
 		{
-			for (int i = 0; i < this.puzzleHeight - 3; i++)
-			{
-				if (random.Next(100) > 70)
-				{
-					GameObject gameObject;
-					gameObject = Singleton<ResourceManager>.instance.InstantiateByName("FLOOR_PUZZLE_PRO_PIECE_TOP");
-					gameObject.transform.parent = colliderObject.transform;
-					gameObject.transform.localPosition = new Vector3((float)x, (float)(-(float)i));
-					break;
-				}
-			}
+			GameObject gameObject;
+			gameObject = Singleton<ResourceManager>.instance.InstantiateByName("FLOOR_PUZZLE_PRO_PIECE_TOP");
+			gameObject.transform.parent = colliderObject.transform;
+			gameObject.transform.localPosition = new Vector3((float)x, (float)(-(float)y));
 		}
 
 		private void _SetSeed(int value)
@@ -95,6 +94,10 @@ namespace TrickyMultiplayerPlus
 		}
 
 		private const int _BOTTOM_MARGIN = 3;
+
+		private const int _NUM_RANDOM_BLOCKS = 3;
+
+		private const int _TOP_MARGIN = 3;
 
 		private int _seed;
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace TrickyMultiplayerPlus
 {
@@ -60,9 +61,64 @@ namespace TrickyMultiplayerPlus
 			gameObject.transform.parent = this._gameObject.transform;
 			gameObject.transform.localPosition = Vector3.zero;
 
-			this._CreateSides(gameObject, random, 5);
-			this._CreateSides(gameObject, random, -5);
+
+			// Pick between wedge bridge mode, arch bridge mode, and random puzzle layout mode
+			int pickedMode = random.Next(3);
+
+			// Wedge Bridge Mode
+			if (pickedMode == 0)
+			{
+				this._CreateSides(gameObject, random, 5);
+				this._CreateSides(gameObject, random, -5);
+			}
+
+			// Arch Bridge Mode
+			if (pickedMode == 1)
+			{
+				// Left platform
+				this._CreateBlock(gameObject, -6, 2);
+				this._CreateBlock(gameObject,-5, 2);
+				this._CreateBlock(gameObject,-4, 2);
+
+				// Right platform
+				this._CreateBlock(gameObject, 4, 2);
+				this._CreateBlock(gameObject, 5, 2);
+				this._CreateBlock(gameObject, 6, 2);
+			}
+
+
+			// Random blocks layout mode
+			if (pickedMode == 2)
+			{
+				ArrayList alreadySeenX = new ArrayList();
+				// Bottom blocks
+				for (int i = 0; i < random.Next(2) + 4; i++)
+				{
+					int x = random.Next(10) - 5;
+					int y = random.Next(this.puzzleHeight - _TOP_MARGIN);
+					this._CreateBlock(gameObject, x, y);
+				}
+
+
+				// Top blocks
+				int topX = random.Next(5) - 5;
+				int topY = random.Next(this.puzzleHeight - _TOP_MARGIN) - 10;
+				this._CreateBlock(gameObject, topX, topY);
+
+				int topY2 = random.Next(this.puzzleHeight - _TOP_MARGIN) - 10;
+				this._CreateBlock(gameObject, topX + 6 + random.Next(2), topY2);
+			}
+
+
 			WBTools.SetLayerRecursively(gameObject, this._gameObject.layer, WBTools.LayerType.ANY);
+		}
+
+		private void _CreateBlock(GameObject colliderObject, int x, int y)
+		{
+			GameObject gameObject;
+			gameObject = Singleton<ResourceManager>.instance.InstantiateByName("FLOOR_PUZZLE_PRO_PIECE_TOP");
+			gameObject.transform.parent = colliderObject.transform;
+			gameObject.transform.localPosition = new Vector3((float)x, (float)(-(float)y));
 		}
 
 		private void _CreateSides(GameObject colliderObject, System.Random random, int x)
@@ -101,6 +157,8 @@ namespace TrickyMultiplayerPlus
 		}
 
 		private const int _BOTTOM_MARGIN = 3;
+
+		private const int _TOP_MARGIN = 3;
 
 		private int _seed;
 

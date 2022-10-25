@@ -16,6 +16,7 @@ namespace TrickyMultiplayerPlus
 			__instance.RegisterLanguage("DIFFICULTY_HEROIC", "Heroic", false, true);
 			__instance.RegisterLanguage("DIFFICULTY_CRAZY", "Crazy", false, true);
 			__instance.RegisterLanguage("EXPLANATION_MULTIPLAYER_RACE_CRAZY_SUBTITLE", "Bridge the gap!", false, true);
+			__instance.RegisterLanguage("COUNTDOWN_TALLEST", "Go!", false, true);
 
 			return;
 		}

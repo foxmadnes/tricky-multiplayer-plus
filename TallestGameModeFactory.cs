@@ -8,16 +8,18 @@ namespace TrickyMultiplayerPlus
 		{
 			this.ambientAudio = new string[]
 			{
-			"AMBIENCE_WATER"
+				"AMBIENCE_BREEZE"
 			};
 			this.musicAudio = new MusicStruct[]
 			{
 			new MusicStruct("MUSIC_RACE", 1f)
 			};
-			this.backgroundFactory = new BackgroundsFactory(new Type[]
+			backgroundFactory = new BackgroundsFactory(new Type[]
 			{
-				typeof(RaceBackground),
-				typeof(RaceForeground),
+					typeof(TallestBackground),
+					typeof(WinnerHighlightBackground),
+					typeof(MistForeground),
+					typeof(LoserHighlightBackground)
 			});
 			this.worldId = 0;
 			this.floorFactory = new FloorFactory("FLOOR_LWS", 12.5f);

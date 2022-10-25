@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\SteamLibrary\steamapps\common\Tricky Towers\BepInEx\plugins\</OutputPath>
+    <OutputPath>D:\SteamLibrary\steamapps\common\Tricky Towers\BepInEx\plugins\TrickyMultiplayerPlus\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -96,19 +96,22 @@
     <Compile Include="CrazyRandomPuzzleFloor.cs" />
     <Compile Include="HeroicRandomPuzzleFloor.cs" />
     <Compile Include="CrazyRandomRaceFloor.cs" />
+    <Compile Include="WindZoneLayerDuplicate.cs" />
+    <Compile Include="MistyWindForeground.cs" />
+    <Compile Include="TallestBackground.cs" />
     <Compile Include="ResourceManagerSubstitutionsPatch.cs" />
     <Compile Include="GameModeIndexPatch.cs" />
     <Compile Include="HarmonySetup.cs" />
     <Compile Include="MultiplayerPuzzleModeCrazyFactory.cs" />
     <Compile Include="MultiplayerPuzzleModeHeroicFactory.cs" />
     <Compile Include="MultiplayerRaceModeCrazyFactory.cs" />
-    <Compile Include="MultiplayerRaceModeEpicFactory.cs" />
+    <Compile Include="MultiplayerRaceModeHeroicFactory.cs" />
     <Compile Include="MultiplayerSurvivalModeCrazyFactory.cs" />
-    <Compile Include="MultiplayerSurvivalModeEpicFactory.cs" />
+    <Compile Include="MultiplayerSurvivalModeHeroicFactory.cs" />
     <Compile Include="MultiPlayerTallestGameModeIntroController.cs" />
     <Compile Include="MultiPlayerTallestGameModePlayController.cs" />
     <Compile Include="MultiplayerTallestModeCrazyFactory.cs" />
-    <Compile Include="MultiplayerTallestModeEpicFactory.cs" />
+    <Compile Include="MultiplayerTallestModeHeroicFactory.cs" />
     <Compile Include="MultiplayerTallestModeMediumFactory.cs" />
     <Compile Include="MultiplayerTallestModeProFactory.cs" />
     <Compile Include="PlayerStatsNewGamemodesPatch.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="RegisterNewSoundsPatch.cs" />
     <Compile Include="RegisterNewStringsPatch.cs" />
     <Compile Include="SharedRandomNamedGroupBrickPickerFactory.cs" />
+    <Compile Include="TallestGameModeCountDownController.cs" />
     <Compile Include="TallestGameMode.cs" />
     <Compile Include="TallestGameModeFactory.cs" />
   </ItemGroup>

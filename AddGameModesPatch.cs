@@ -24,22 +24,22 @@ namespace TrickyMultiplayerPlus
 			RaceGameModeFactory gameModeFactoryIn3 = new MultiplayerRaceModeProFactory().Create();
 			RaceGameModeFactory customHeroicGameFactory = new MultiplayerRaceModeHeroicFactory().Create();
 			RaceGameModeFactory crazyGameFactory = new MultiplayerRaceModeCrazyFactory().Create();
-			BackgroundsFactory backgroundsFactoryIn = new BackgroundsFactory(new Type[]
+			BackgroundsFactory raceBackgroundsFactoryIn = new BackgroundsFactory(new Type[]
 			{
 			typeof(RaceBackground),
 			typeof(RaceForeground)
 			});
-			BackgroundsFactory backgroundsFactoryIn2 = new BackgroundsFactory(new Type[]
+			BackgroundsFactory raceBackgroundsFactoryIn2 = new BackgroundsFactory(new Type[]
 			{
 			typeof(RaceProBackground),
 			typeof(RaceProForeground)
 			});
 			WorldModel raceItem = new WorldModel("RACE", "MRW", "Race World", new List<SelectModel>
 		{
-			new MultiplayerGameModeModel("RACE_NORMAL", "Race Normal", gameModeFactoryIn2, backgroundsFactoryIn, "NORMAL", "MULTIPLAYER_RACE_NORMAL"),
-			new MultiplayerGameModeModel("RACE_PRO", "Race Pro", gameModeFactoryIn3, backgroundsFactoryIn2, "PRO", "MULTIPLAYER_RACE_PRO"),
-			new MultiplayerGameModeModel("RACE_HEROIC", "Race Heroic", customHeroicGameFactory, backgroundsFactoryIn2, "HEROIC", "MULTIPLAYER_RACE_HEROIC"),
-			new MultiplayerGameModeModel("RACE_CRAZY", "Race Crazy", crazyGameFactory, backgroundsFactoryIn, "CRAZY", "MULTIPLAYER_RACE_CRAZY")
+			new MultiplayerGameModeModel("RACE_NORMAL", "Race Normal", gameModeFactoryIn2, raceBackgroundsFactoryIn, "NORMAL", "MULTIPLAYER_RACE_NORMAL"),
+			new MultiplayerGameModeModel("RACE_PRO", "Race Pro", gameModeFactoryIn3, raceBackgroundsFactoryIn2, "PRO", "MULTIPLAYER_RACE_PRO"),
+			new MultiplayerGameModeModel("RACE_HEROIC", "Race Heroic", customHeroicGameFactory, raceBackgroundsFactoryIn2, "HEROIC", "MULTIPLAYER_RACE_HEROIC"),
+			new MultiplayerGameModeModel("RACE_CRAZY", "Race Crazy", crazyGameFactory, raceBackgroundsFactoryIn, "CRAZY", "MULTIPLAYER_RACE_CRAZY")
 		}, 0);
 
 			UnityEngine.Debug.Log("Adding tallest modes!");
@@ -49,12 +49,24 @@ namespace TrickyMultiplayerPlus
 			TallestGameModeFactory tallestGamePro = new MultiplayerTallestModeProFactory().Create();
 			TallestGameModeFactory tallestGameCrazy = new MultiplayerTallestModeCrazyFactory().Create();
 
+			BackgroundsFactory tallestBackgroundsFactoryIn = new BackgroundsFactory(new Type[]
+			{
+			typeof(TallestBackground),
+			typeof(MistForeground)
+			});
+
+			BackgroundsFactory tallestWindyBackgroundsFactoryIn = new BackgroundsFactory(new Type[]
+{
+			typeof(TallestBackground),
+			typeof(MistyWindForeground)
+});
+
 			WorldModel tallestItem = new WorldModel("TALLEST", "MTW", "Tallest World", new List<SelectModel>
 		{
-			new MultiplayerGameModeModel("TALLEST_NORMAL", "Tallest Normal", tallestGameMedium, backgroundsFactoryIn, "NORMAL", "MULTIPLAYER_TALLEST_NORMAL"),
-			new MultiplayerGameModeModel("TALLEST_PRO", "Tallest Pro", tallestGamePro, backgroundsFactoryIn2, "PRO", "MULTIPLAYER_TALLEST_PRO"),
-			new MultiplayerGameModeModel("TALLEST_HEROIC", "Tallest Heroic", tallestGameHeroic, backgroundsFactoryIn, "HEROIC", "MULTIPLAYER_TALLEST_HEROIC"),
-			new MultiplayerGameModeModel("TALLEST_CRAZY", "Tallest Crazy", tallestGameCrazy, backgroundsFactoryIn, "CRAZY", "MULTIPLAYER_TALLEST_CRAZY")
+			new MultiplayerGameModeModel("TALLEST_NORMAL", "Tallest Normal", tallestGameMedium, tallestBackgroundsFactoryIn, "NORMAL", "MULTIPLAYER_TALLEST_NORMAL"),
+			new MultiplayerGameModeModel("TALLEST_PRO", "Tallest Pro", tallestGamePro, tallestBackgroundsFactoryIn, "PRO", "MULTIPLAYER_TALLEST_PRO"),
+			new MultiplayerGameModeModel("TALLEST_HEROIC", "Tallest Heroic", tallestGameHeroic, tallestWindyBackgroundsFactoryIn, "HEROIC", "MULTIPLAYER_TALLEST_HEROIC"),
+			new MultiplayerGameModeModel("TALLEST_CRAZY", "Tallest Crazy", tallestGameCrazy, tallestBackgroundsFactoryIn, "CRAZY", "MULTIPLAYER_TALLEST_CRAZY")
 		}, 0);
 			localMultiplayerModesRef(__instance).Add(raceItem);
 			localMultiplayerModesRef(__instance).Add(tallestItem);

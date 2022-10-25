@@ -1,4 +1,6 @@
-﻿namespace TrickyMultiplayerPlus
+﻿using System;
+
+namespace TrickyMultiplayerPlus
 {
     public class MultiplayerTallestModeMediumFactory : AbstractMulitplayerTallestModeFactory
 	{
@@ -8,10 +10,10 @@
 			{
 				dropSpeedControllerFactory = new DropSpeedControllerFactory(2f),
 				brickPickerFactory = new SharedRandomNamedBrickPickerFactory(null, -1, 35),
-				startSpell = "LARGE_SELF",
+				startSpell = "IVY",
 				brickLimit = 35,
-				windStrengthMax = 0f,
-				windStrengthMin = 0f
+				windStrengthMin = 0f,
+				windStrengthMax = 0f
 			};
 		}
 	}

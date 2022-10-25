@@ -5,7 +5,7 @@
 
     public class RandomBagGroupBrickNamePicker : IBrickPicker
 	{
-		public RandomBagGroupBrickNamePicker(string[] possibleBrickNames, int seed = -1, int groupSize = 4, int numBricksToSpawn = -1)
+		public RandomBagGroupBrickNamePicker(string[] possibleBrickNames, int seed = -1, int groupSize = 3, int numBricksToSpawn = -1)
 		{
 			this._brickNameBag = new List<string>();
 			this._seed = seed;
@@ -45,7 +45,9 @@
 			int index = this._random.Next(this._brickNameBag.Count);
 			string result = this._brickNameBag[index];
 			this._currentBrick = result;
-			this._bricksLeftInGroup = _brickGroupSize - 1;
+			// Introduce some randomness to how many bricks are left in each group to keep players on their toes
+			int randomFactor = this._random.Next(3);
+			this._bricksLeftInGroup = _brickGroupSize - 1 - randomFactor;
 			this._brickNameBag.RemoveAt(index);
 			this._bricksSpawnedCount++;
 			return result;

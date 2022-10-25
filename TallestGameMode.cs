@@ -25,10 +25,6 @@ namespace TrickyMultiplayerPlus
 		protected override void _Init()
 		{
 			base._Init();
-			Shader.SetGlobalFloat("_WaterCutoff", -8.5f);
-			Shader.SetGlobalColor("_WaterColor", ColorUtil.FromHex(2768553U));
-			Shader.SetGlobalColor("_WaterLineColor", ColorUtil.FromHex(12106473U));
-			Shader.EnableKeyword("WATER_ON");
 			this._brickLimitEndCondition = new FirstCompoundCondition();
 			this._endCondition = new FirstCompoundCondition();
 			this._endCondition.AddCompareCondition(this._brickLimitEndCondition);
@@ -47,7 +43,7 @@ namespace TrickyMultiplayerPlus
 			this._gameModePlayController.countDownStarted += this._HandleCountDownStarted;
 			this.AddStateController("EXPLANATION", new GameModeExplanationController(this._explanationId, this._showControls, "INTRO", this.skipExplanation));
 			this.AddStateController("INTRO", new MultiPlayerTallestGameModeIntroController("TALLEST", this.skipIntroduction, this.skipModeTitle));
-			this.AddStateController("COUNTDOWN", new RaceGameModeCountDownController(this._musicResources));
+			this.AddStateController("COUNTDOWN", new TallestGameModeCountDownController(this._musicResources));
 			this.AddStateController("PLAY", this._gameModePlayController);
 		}
 
@@ -71,12 +67,15 @@ namespace TrickyMultiplayerPlus
 		public override void GetSetup(NetworkWriter writer)
 		{
 			base.GetSetup(writer);
+			writer.Write(this._initialWindDirectionModel.value);
 		}
 
 		public override void SetSetup(NetworkReader reader)
 		{
 			base.SetSetup(reader);
+			this._initialWindDirectionModel.value = reader.ReadInt32();
 		}
+
 
 		public override float ModifyHorizontalMoveLimit(float limit)
 		{
